@@ -8,6 +8,18 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class SocketCommunicationServer {
+	// 判断是否为素数
+	public static boolean isPrimeNumber(int number) {
+		boolean result = true;
+		if (number > 0) {
+			for (int i = 2; i < number; i++) {
+				if (number % i == 0) {
+					result = false;
+				}
+			}
+		}
+		return result;
+	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -39,10 +51,17 @@ public class SocketCommunicationServer {
 						System.out.println("服务器停止工作！");
 						break;
 					}
-					System.out.println(inputLine);
-					output.println(inputLine);
+					int number = Integer.valueOf(inputLine);
+					boolean isnumber = false;
+					for (int i = 1; i < number; i++) {
+						if (isPrimeNumber(i) && isPrimeNumber(number - i)) {
+							isnumber = true;
+						}
+					}
+					output.println(isnumber);
 					output.flush();
 				}
+
 				/* 5 客户端工作完毕后，则服务器端程序关闭和客户端通讯的流和通讯的Socket。 */
 				output.close();
 				input.close();

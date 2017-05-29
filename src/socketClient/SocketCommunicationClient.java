@@ -7,19 +7,7 @@ import java.net.Socket;
 import java.util.Scanner;
 
 public class SocketCommunicationClient {
-	// 判断是否为素数
-	public static boolean isPrimeNumber(int number) {
-		boolean result = true;
-		if (number > 0) {
-			for (int i = 2; i < number; i++) {
-				if (number % i == 0) {
-					result = false;
-				}
-			}
-		}
-		return result;
-	}
-	
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		try {
@@ -63,22 +51,13 @@ public class SocketCommunicationClient {
 						correct = true;
 					}
 				}
-				boolean isnumber = false;
 				if (correct) {
-					for (int i = 1; i < number; i++) {
-						if (isPrimeNumber(i) && isPrimeNumber(number - i)) {
-							isnumber = true;
-						}
-					}
-				}
-				if (isnumber) {
-					output.println(number + " is successed");
-				} else {
-					output.println(number + " is fail");
+					output.println(number);
 				}
 				output.flush();
 				response = input.readLine();
-				System.out.println("输入的数是:" + response);
+				System.out.println("Inputnumber is : " + number);
+				System.out.println("Goldbach Conjecture is " + response);
 			}
 
 			/*
