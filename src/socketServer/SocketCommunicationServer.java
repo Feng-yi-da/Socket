@@ -43,7 +43,6 @@ public class SocketCommunicationServer {
 					output.println(inputLine);
 					output.flush();
 				}
-				
 				/* 5 客户端工作完毕后，则服务器端程序关闭和客户端通讯的流和通讯的Socket。 */
 				output.close();
 				input.close();

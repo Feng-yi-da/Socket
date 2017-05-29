@@ -7,19 +7,19 @@ import java.net.Socket;
 import java.util.Scanner;
 
 public class SocketCommunicationClient {
-	public static boolean is(int number) {
-		boolean b = true;
+	// ÅÐ¶ÏÊÇ·ñÎªËØÊý
+	public static boolean isPrimeNumber(int number) {
+		boolean result = true;
 		if (number > 0) {
 			for (int i = 2; i < number; i++) {
 				if (number % i == 0) {
-					b = false;
+					result = false;
 				}
 			}
 		}
-		return b;
-
+		return result;
 	}
-
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		try {
@@ -43,6 +43,7 @@ public class SocketCommunicationClient {
 			boolean iscontinue = true;
 			while (iscontinue) {
 				boolean correct = false;
+				System.out.println("input number:");
 				Scanner scanner = new Scanner(System.in);
 				int number = scanner.nextInt();
 				String response;
@@ -65,7 +66,7 @@ public class SocketCommunicationClient {
 				boolean isnumber = false;
 				if (correct) {
 					for (int i = 1; i < number; i++) {
-						if (is(i) && is(number - i)) {
+						if (isPrimeNumber(i) && isPrimeNumber(number - i)) {
 							isnumber = true;
 						}
 					}
